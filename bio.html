@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiologyQuiz Hub - Classes 6-12</title>
+    <link rel="stylesheet" href="bio.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">📚</div>
+                    <div class="logo-text">
+                        <h1>BiologyQuiz Hub</h1>
+                        <p>Interactive Biology Learning Platform</p>
+                    </div>
+                </div>
+                <div class="header-info">
+                    <div class="info-item">
+                        <span class="icon">👥</span>
+                        <span>Classes 6-12</span>
+                    </div>
+                    <div class="info-item">
+                        <span class="icon">🏆</span>
+                        <span>Interactive Quizzes</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Breadcrumb -->
+    <nav class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-content">
+                <button id="gradeNav" class="breadcrumb-link active">Select Grade</button>
+                <span class="breadcrumb-separator">/</span>
+                <button id="chapterNav" class="breadcrumb-link hidden">Chapters</button>
+                <span class="breadcrumb-separator hidden" id="chapterSep">/</span>
+                <span id="quizNav" class="breadcrumb-current hidden">Quiz</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main">
+        <div class="container">
+            <!-- Grade Selection View -->
+            <div id="gradeView" class="view active">
+                <div class="view-header">
+                    <h2>Choose Your Class</h2>
+                    <p>Select your class to access chapter-wise biology quizzes designed to test and improve your understanding</p>
+                </div>
+                <div class="grade-grid">
+                    <div class="grade-card" data-grade="6">
+                        <div class="grade-header grade-6">
+                            <div class="grade-overlay"></div>
+                            <div class="grade-content">
+                                <div class="grade-icon">🎓</div>
+                                <h3>Class 6</h3>
+                            </div>
+                            <div class="grade-book">📖</div>
+                        </div>
+                        <div class="grade-body">
+                            <p>Basic Life Processes</p>
+                            <div class="grade-tag">Multiple Chapters</div>
+                        </div>
+                    </div>
+
+                    <div class="grade-card" data-grade="7">
+                        <div class="grade-header grade-7">
+                            <div class="grade-overlay"></div>
+                            <div class="grade-content">
+                                <div class="grade-icon">🎓</div>
+                                <h3>Class 7</h3>
+                            </div>
+                            <div class="grade-book">📖</div>
+                        </div>
+                        <div class="grade-body">
+                            <p>Living Organisms</p>
+                            <div class="grade-tag">Multiple Chapters</div>
+                        </div>
+                    </div>
+
+                    <div class="grade-card" data-grade="8">
+                        <div class="grade-header grade-8">
+                            <div class="grade-overlay"></div>
+                            <div class="grade-content">
+                                <div class="grade-icon">🎓</div>
+                                <h3>Class 8</h3>
+                            </div>
+                            <div class="grade-book">📖</div>
+                        </div>
+                        <div class="grade-body">
+                            <p>Cell Structure & Function</p>
+                            <div class="grade-tag">Multiple Chapters</div>
+                        </div>
+                    </div>
+
+                    <div class="grade-card" data-grade="9">
+                        <div class="grade-header grade-9">
+                            <div class="grade-overlay"></div>
+                            <div class="grade-content">
+                                <div class="grade-icon">🎓</div>
+                                <h3>Class 9</h3>
+                            </div>
+                            <div class="grade-book">📖</div>
+                        </div>
+                        <div class="grade-body">
+                            <p>Fundamental Unit of Life</p>
+                            <div class="grade-tag">Multiple Chapters</div>
+                        </div>
+                    </div>
+
+                    <div class="grade-card" data-grade="10">
+                        <div class="grade-header grade-10">
+                            <div class="grade-overlay"></div>
+                            <div class="grade-content">
+                                <div class="grade-icon">🎓</div>
+                                <h3>Class 10</h3>
+                            </div>
+                            <div class="grade-book">📖</div>
+                        </div>
+                        <div class="grade-body">
+                            <p>Life Processes</p>
+                            <div class="grade-tag">Multiple Chapters</div>
+                        </div>
+                    </div>
+
+                    <div class="grade-card" data-grade="11">
+                        <div class="grade-header grade-11">
+                            <div class="grade-overlay"></div>
+                            <div class="grade-content">
+                                <div class="grade-icon">🎓</div>
+                                <h3>Class 11</h3>
+                            </div>
+                            <div class="grade-book">📖</div>
+                        </div>
+                        <div class="grade-body">
+                            <p>Diversity in Living World</p>
+                            <div class="grade-tag">Multiple Chapters</div>
+                        </div>
+                    </div>
+
+                    <div class="grade-card" data-grade="12">
+                        <div class="grade-header grade-12">
+                            <div class="grade-overlay"></div>
+                            <div class="grade-content">
+                                <div class="grade-icon">🎓</div>
+                                <h3>Class 12</h3>
+                            </div>
+                            <div class="grade-book">📖</div>
+                        </div>
+                        <div class="grade-body">
+                            <p>Reproduction & Development</p>
+                            <div class="grade-tag">Multiple Chapters</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chapter Selection View -->
+            <div id="chapterView" class="view">
+                <div class="view-header">
+                    <button class="back-btn" id="backToGrades">← Back to Grades</button>
+                    <h2 id="chapterTitle">Class Biology Chapters</h2>
+                    <p>Choose a chapter to start your biology quiz. Each chapter contains carefully crafted questions to test your knowledge.</p>
+                </div>
+                <div class="chapter-grid" id="chapterGrid">
+                    <!-- Chapters will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Quiz View -->
+            <div id="quizView" class="view">
+                <div class="quiz-container">
+                    <div class="quiz-header">
+                        <div class="quiz-info">
+                            <h2 id="quizTitle">Chapter Title</h2>
+                            <p id="quizSubtitle">Class Biology Quiz</p>
+                        </div>
+                        <div class="quiz-stats">
+                            <div class="stat">
+                                <span class="icon">⏱️</span>
+                                <span id="timer">0:00</span>
+                            </div>
+                            <div class="stat">
+                                <span id="questionCounter">Question 1 of 5</span>
+                            </div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-content">
+                        <button class="back-btn" id="backToChapters">← Back to Chapters</button>
+                        <div class="question-container">
+                            <h3 id="questionText">Question will appear here</h3>
+                            <div class="options-container" id="optionsContainer">
+                                <!-- Options will be populated by JavaScript -->
+                            </div>
+                        </div>
+                        <div class="quiz-controls">
+                            <div class="quiz-status" id="quizStatus">Select an answer to continue</div>
+                            <button class="btn btn-primary" id="nextBtn" disabled>Next Question</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results View -->
+            <div id="resultsView" class="view">
+                <div class="results-container">
+                    <div class="results-header">
+                        <div class="results-info">
+                            <h2>Quiz Complete!</h2>
+                            <p id="resultsSubtitle">Class Biology Quiz</p>
+                        </div>
+                        <div class="results-icon">🏆</div>
+                    </div>
+
+                    <div class="results-stats">
+                        <div class="stat-card">
+                            <div class="stat-value" id="scoreValue">0/0</div>
+                            <div class="stat-label">Correct Answers</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="percentageValue">0%</div>
+                            <div class="stat-label">Score</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-value" id="timeValue">0:00</div>
+                            <div class="stat-label">Time Taken</div>
+                        </div>
+                    </div>
+
+                    <div class="results-review">
+                        <h3>Question Review</h3>
+                        <div id="reviewContainer">
+                            <!-- Review items will be populated by JavaScript -->
+                        </div>
+                    </div>
+
+                    <div class="results-actions">
+                        <button class="btn btn-primary" id="retakeBtn">🔄 Retake Quiz</button>
+                        <button class="btn btn-secondary" id="backToChaptersFromResults">Back to Chapters</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="bio.js"></script>
+</body>
+</html>

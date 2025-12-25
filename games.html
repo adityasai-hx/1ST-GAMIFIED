@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EduGames - Educational Games Portal</title>
+    <link href="games.css" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-container">
+        <div class="nav-brand">
+          <h2>EduGames</h2>
+        </div>
+        <div class="nav-menu">
+          <a href="#math" class="nav-link">Math</a>
+          <a href="#physics" class="nav-link">Physics</a>
+          <a href="#chemistry" class="nav-link">Chemistry</a>
+          <a href="#biology" class="nav-link">Biology</a>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-content">
+          <h1>Educational Games Portal</h1>
+          <p>Discover the joy of learning through interactive games across mathematics, physics, chemistry, and biology</p>
+          <button class="cta-button" onclick="scrollToSection('math')">Explore Games</button>
+        </div>
+        <div class="hero-animation">
+          <div class="floating-element math">∑</div>
+          <div class="floating-element physics">⚡</div>
+          <div class="floating-element chemistry">🧪</div>
+          <div class="floating-element biology">🧬</div>
+        </div>
+      </section>
+
+      <!-- Mathematical Games Section -->
+      <section id="math" class="games-section math-section">
+        <div class="section-container">
+          <h2>Mathematical Games</h2>
+          <p class="section-description">Challenge your mind with engaging mathematical puzzles and games</p>
+          <div class="games-grid">
+            <div class="game-card">
+              <div class="game-icon">∑</div>
+              <h3>Algebra Adventure</h3>
+              <p>Solve equations and unlock new levels in this exciting algebra journey</p>
+              <div class="game-features">
+                <span class="feature-tag">Problem Solving</span>
+                <span class="feature-tag">Linear Equations</span>
+              </div>
+              <button class="play-button">Play Now</button>
+            </div>
+            <div class="game-card">
+              <div class="game-icon">π</div>
+              <h3>Geometry Quest</h3>
+              <p>Explore shapes, angles, and geometric principles through interactive challenges</p>
+              <div class="game-features">
+                <span class="feature-tag">Shapes</span>
+                <span class="feature-tag">Area & Volume</span>
+              </div>
+              <button class="play-button">Play Now</button>
+            </div>
+            <div class="game-card">
+              <div class="game-icon">∞</div>
+              <h3>Calculus Challenge</h3>
+              <p>Master derivatives and integrals with step-by-step guided practice</p>
+              <div class="game-features">
+                <span class="feature-tag">Derivatives</span>
+                <span class="feature-tag">Integration</span>
+              </div>
+              <button class="play-button">Play Now</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Physics Games Section -->
+      <section id="physics" class="games-section physics-section">
+        <div class="section-container">
+          <h2>Physics Games</h2>
+          <p class="section-description">Discover the laws of physics through interactive simulations and games</p>
+          <div class="games-grid">
+            <div class="game-card">
+              <div class="game-icon">⚡</div>
+              <h3>Circuit Builder</h3>
+              <p>Build electrical circuits and learn about voltage, current, and resistance</p>
+              <div class="game-features">
+                <span class="feature-tag">Electricity</span>
+                <span class="feature-tag">Circuits</span>
+              </div>
+              <button class="play-button">Play Now</button>
+            </div>
+            <div class="game-card">
+              <div class="game-icon">🌊</div>
+              <h3>Wave Simulator</h3>
+              <p>Experiment with sound and light waves in this interactive physics lab</p>
+              <div class="game-features">
+                <span class="feature-tag">Waves</span>
+                <span class="feature-tag">Frequency</span>
+              </div>
+              <button class="play-button">Play Now</button>
+            </div>
+            <div class="game-card">
+              <div class="game-icon">🚀</div>
+              <h3>Motion Master</h3>
+              <p>Learn about velocity, acceleration, and Newton's laws through space missions</p>
+              <div class="game-features">
+                <span class="feature-tag">Mechanics</span>
+                <span class="feature-tag">Forces</span>
+              </div>
+              <button class="play-button">Play Now</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Chemistry Games Section -->
+      <section id="chemistry" class="games-section chemistry-section">
+        <div class="section-container">
+          <h2>Chemistry Games</h2>
+          <p class="section-description">Mix, react, and explore the fascinating world of chemistry</p>
+          <div class="games-grid">
+            <div class="game-card">
+              <div class="game-icon">🧪</div>
+              <h3>Element Explorer</h3>
+              <p>Navigate the periodic table and learn about atomic structure and properties</p>
+              <div class="game-features">
+                <span class="feature-tag">Periodic Table</span>
+                <span class="feature-tag">Atoms</span>
+              </div>
+              <button class="play-button">Play Now</button>
+            </div>
+            <div class="game-card">
+              <div class="game-icon">⚗️</div>
+              <h3>Reaction Lab</h3>
+              <p>Conduct virtual experiments and balance chemical equations</p>
+              <div class="game-features">
+                <span class="feature-tag">Reactions</span>
+                <span class="feature-tag">Balancing</span>
+              </div>
+              <button class="play-button">Play Now</button>
+            </div>
+            <div class="game-card">
+              <div class="game-icon">⚛️</div>
+              <h3>Molecule Builder</h3>
+              <p>Construct molecular structures and understand chemical bonds</p>
+              <div class="game-features">
+                <span class="feature-tag">Molecules</span>
+                <span class="feature-tag">Bonding</span>
+              </div>
+              <button class="play-button">Play Now</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Biology Games Section -->
+      <section id="biology" class="games-section biology-section">
+        <div class="section-container">
+          <h2>Biology Games</h2>
+          <p class="section-description">Explore life sciences through interactive biological simulations</p>
+          <div class="games-grid">
+            <div class="game-card">
+              <div class="game-icon">🧬</div>
+              <h3>DNA Detective</h3>
+              <p>Decode genetic information and learn about heredity and evolution</p>
+              <div class="game-features">
+                <span class="feature-tag">Genetics</span>
+                <span class="feature-tag">DNA</span>
+              </div>
+              <button class="play-button">Play Now</button>
+            </div>
+            <div class="game-card">
+              <div class="game-icon">🔬</div>
+              <h3>Cell Explorer</h3>
+              <p>Journey inside cells and discover organelles and their functions</p>
+              <div class="game-features">
+                <span class="feature-tag">Cell Biology</span>
+                <span class="feature-tag">Organelles</span>
+              </div>
+              <button class="play-button">Play Now</button>
+            </div>
+            <div class="game-card">
+              <div class="game-icon">🌱</div>
+              <h3>Ecosystem Builder</h3>
+              <p>Create balanced ecosystems and understand food chains and biodiversity</p>
+              <div class="game-features">
+                <span class="feature-tag">Ecology</span>
+                <span class="feature-tag">Food Chains</span>
+              </div>
+              <button class="play-button">Play Now</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-content">
+        <p>&copy; 2025 EduGames. Making learning fun through interactive games.</p>
+      </div>
+    </footer>
+
+    <script type="module" src="games.js"></script>
+  </body>
+</html>

@@ -1,0 +1,139 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f9fafb;
+    color: #333;
+}
+
+.page-header {
+    background-color: #1e293b;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    font-size: 18px;
+}
+
+.back-link {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.dashboard-container {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(320px, 1fr)); /* ✅ Exactly 2 cards in first row */
+    gap: 16px;
+    padding: 20px;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .dashboard-container {
+        grid-template-columns: 1fr; /* ✅ Stack cards in one column on smaller screens */
+    }
+}
+
+.card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+}
+
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.active-label {
+    background: #16a34a;
+    color: white;
+    padding: 3px 8px;
+    font-size: 12px;
+    border-radius: 8px;
+}
+
+.card-subtitle {
+    color: #475569;
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.card-description {
+    font-size: 14px;
+    margin: 10px 0;
+    color: #334155;
+}
+
+.card-details {
+    font-size: 13px;
+    margin: 10px 0;
+}
+
+.progress-bar {
+    height: 8px;
+    background: #e2e8f0;
+    border-radius: 5px;
+    margin: 5px 0;
+    overflow: hidden;
+}
+
+.progress {
+    height: 100%;
+    background: #3b82f6;
+}
+
+.tags-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background: #e0f2fe;
+    color: #0284c7;
+    padding: 3px 8px;
+    font-size: 12px;
+    border-radius: 6px;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.join-button {
+    background: #2563eb;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.join-button:hover {
+    background: #1d4ed8;
+}

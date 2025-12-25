@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TeachQuiz - Teacher Dashboard</title>
+    <link rel="stylesheet" href="anlog.css">
+</head>
+<body>
+    <div class="app">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>TeachQuiz</h1>
+            </div>
+            <div class="nav-menu">
+                <button class="nav-btn active" data-page="dashboard">Dashboard</button>
+                <button class="nav-btn" data-page="quizzes">Quizzes</button>
+                <button class="nav-btn" data-page="classrooms">Classrooms</button>
+                <button class="nav-btn" data-page="homework">Homework</button>
+                <button class="nav-btn" data-page="gk">Daily GK</button>
+            </div>
+        </nav>
+
+        <!-- Dashboard Page -->
+        <div class="page active" id="dashboard">
+            <div class="container">
+                <h2>Dashboard</h2>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <h3>Total Students</h3>
+                        <p class="stat-number" id="totalStudents">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Active Quizzes</h3>
+                        <p class="stat-number" id="activeQuizzes">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Classrooms</h3>
+                        <p class="stat-number" id="totalClassrooms">0</p>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Today's Participants</h3>
+                        <p class="stat-number" id="todayParticipants">0</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-sections">
+                    <div class="section">
+                        <h3>Today's Top 10 Students</h3>
+                        <div class="leaderboard" id="todayLeaderboard">
+                            <p class="empty-state">No quiz results today</p>
+                        </div>
+                    </div>
+
+                    <div class="section">
+                        <h3>Recent Activity</h3>
+                        <div class="activity-feed" id="activityFeed">
+                            <p class="empty-state">No recent activity</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Quizzes Page -->
+        <div class="page" id="quizzes">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Quiz Management</h2>
+                    <button class="btn btn-primary" onclick="showCreateQuiz()">Create New Quiz</button>
+                </div>
+
+                <div class="quiz-tabs">
+                    <button class="tab-btn active" data-tab="all">All Quizzes</button>
+                    <button class="tab-btn" data-tab="active">Active</button>
+                    <button class="tab-btn" data-tab="completed">Completed</button>
+                </div>
+
+                <div class="quiz-list" id="quizList">
+                    <p class="empty-state">No quizzes created yet</p>
+                </div>
+
+                <!-- Create Quiz Modal -->
+                <div class="modal" id="createQuizModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Create New Quiz</h3>
+                            <button class="close-btn" onclick="closeModal('createQuizModal')">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="createQuizForm">
+                                <div class="form-group">
+                                    <label>Quiz Title</label>
+                                    <input type="text" id="quizTitle" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Subject</label>
+                                    <input type="text" id="quizSubject" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Duration (minutes)</label>
+                                    <input type="number" id="quizDuration" value="30" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Classroom</label>
+                                    <select id="quizClassroom" required>
+                                        <option value="">Select Classroom</option>
+                                    </select>
+                                </div>
+                                
+                                <h4>Questions</h4>
+                                <div id="questionsContainer">
+                                    <div class="question-item">
+                                        <div class="form-group">
+                                            <label>Question 1</label>
+                                            <input type="text" class="question-text" required>
+                                        </div>
+                                        <div class="options-grid">
+                                            <input type="text" class="option" placeholder="Option A" required>
+                                            <input type="text" class="option" placeholder="Option B" required>
+                                            <input type="text" class="option" placeholder="Option C" required>
+                                            <input type="text" class="option" placeholder="Option D" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Correct Answer</label>
+                                            <select class="correct-answer" required>
+                                                <option value="0">Option A</option>
+                                                <option value="1">Option B</option>
+                                                <option value="2">Option C</option>
+                                                <option value="3">Option D</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-secondary" onclick="addQuestion()">Add Question</button>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" onclick="closeModal('createQuizModal')">Cancel</button>
+                            <button class="btn btn-primary" onclick="saveQuiz()">Create Quiz</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Start Exam Modal -->
+                <div class="modal" id="startExamModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Start Exam</h3>
+                            <button class="close-btn" onclick="closeModal('startExamModal')">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="exam-info" id="examInfo"></div>
+                            <div class="student-progress" id="studentProgress">
+                                <h4>Student Progress</h4>
+                                <div class="progress-list" id="progressList"></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" onclick="closeModal('startExamModal')">Close</button>
+                            <button class="btn btn-danger" onclick="endExam()">End Exam</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Classrooms Page -->
+        <div class="page" id="classrooms">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Classroom Management</h2>
+                    <button class="btn btn-primary" onclick="showCreateClassroom()">Create Classroom</button>
+                </div>
+
+                <div class="classrooms-grid" id="classroomsList">
+                    <p class="empty-state">No classrooms created yet</p>
+                </div>
+
+                <!-- Create Classroom Modal -->
+                <div class="modal" id="createClassroomModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Create New Classroom</h3>
+                            <button class="close-btn" onclick="closeModal('createClassroomModal')">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="createClassroomForm">
+                                <div class="form-group">
+                                    <label>Classroom Name</label>
+                                    <input type="text" id="classroomName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Subject</label>
+                                    <input type="text" id="classroomSubject" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Grade Level</label>
+                                    <input type="text" id="classroomGrade" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" onclick="closeModal('createClassroomModal')">Cancel</button>
+                            <button class="btn btn-primary" onclick="saveClassroom()">Create</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Manage Students Modal -->
+                <div class="modal" id="manageStudentsModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Manage Students</h3>
+                            <button class="close-btn" onclick="closeModal('manageStudentsModal')">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label>Add New Student</label>
+                                <div class="input-group">
+                                    <input type="text" id="newStudentName" placeholder="Student Name">
+                                    <button class="btn btn-primary" onclick="addStudent()">Add</button>
+                                </div>
+                            </div>
+                            <h4>Current Students</h4>
+                            <div class="students-list" id="currentStudents"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" onclick="closeModal('manageStudentsModal')">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Homework Page -->
+        <div class="page" id="homework">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Homework Management</h2>
+                    <button class="btn btn-primary" onclick="showAssignHomework()">Assign Homework</button>
+                </div>
+
+                <div class="homework-list" id="homeworkList">
+                    <p class="empty-state">No homework assignments yet</p>
+                </div>
+
+                <!-- Assign Homework Modal -->
+                <div class="modal" id="assignHomeworkModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Assign Homework</h3>
+                            <button class="close-btn" onclick="closeModal('assignHomeworkModal')">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="assignHomeworkForm">
+                                <div class="form-group">
+                                    <label>Title</label>
+                                    <input type="text" id="homeworkTitle" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Description</label>
+                                    <textarea id="homeworkDescription" rows="4" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Classroom</label>
+                                    <select id="homeworkClassroom" required>
+                                        <option value="">Select Classroom</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>Due Date</label>
+                                    <input type="date" id="homeworkDueDate" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" onclick="closeModal('assignHomeworkModal')">Cancel</button>
+                            <button class="btn btn-primary" onclick="saveHomework()">Assign</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Daily GK Page -->
+        <div class="page" id="gk">
+            <div class="container">
+                <div class="page-header">
+                    <h2>Daily General Knowledge</h2>
+                    <button class="btn btn-primary" onclick="showPostGK()">Post Today's Question</button>
+                </div>
+
+                <div class="gk-posts" id="gkPosts">
+                    <p class="empty-state">No GK questions posted yet</p>
+                </div>
+
+                <!-- Post GK Modal -->
+                <div class="modal" id="postGKModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3>Post Daily GK Question</h3>
+                            <button class="close-btn" onclick="closeModal('postGKModal')">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="postGKForm">
+                                <div class="form-group">
+                                    <label>Question</label>
+                                    <textarea id="gkQuestion" rows="3" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>Answer</label>
+                                    <input type="text" id="gkAnswer" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Category</label>
+                                    <select id="gkCategory" required>
+                                        <option value="History">History</option>
+                                        <option value="Geography">Geography</option>
+                                        <option value="Science">Science</option>
+                                        <option value="Sports">Sports</option>
+                                        <option value="Literature">Literature</option>
+                                        <option value="Current Affairs">Current Affairs</option>
+                                    </select>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-secondary" onclick="closeModal('postGKModal')">Cancel</button>
+                            <button class="btn btn-primary" onclick="saveGKPost()">Post</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="anlog.js"></script>
+</body>
+</html>
